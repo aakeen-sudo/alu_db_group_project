@@ -24,6 +24,36 @@ WHERE classroom_id = 5;
 
 SELECT * FROM Classroom
 WHERE building = 'Main Building';
+-- ================================
+-- Faculty table (Dri-m)
+-- ================================
+
+CREATE TABLE Faculty (
+faculty_id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(100) NOT NULL,
+ email VARCHAR(100) NOT NULL UNIQUE,
+ department VARCHAR(50) NOT NULL
+ );
+
+INSERT INTO Faculty (name, email, department) VALUES
+ ('Alice Mukamana', 'a.mukamana@alu.edu', 'Computer Science'),
+                ('Brian Okello', 'b.okello@alu.edu', 'Mathematics'),
+                ('Grace Nkurunziza', 'g.nkurunziza@alu.edu', 'Physics'),
+                ('David Kimani', 'd.kimani@alu.edu', 'Business'),
+                ('Fatima Diallo', 'f.diallo@alu.edu', 'Computer Science');
+
+                -- Dri-m: UPDATE
+                UPDATE Faculty
+                SET department = 'Data Science'
+                WHERE faculty_id = 1;
+
+                -- Dri-m: DELETE
+                DELETE FROM Faculty
+                WHERE faculty_id = 5;
+
+                -- Dri-m: SELECT
+                SELECT * FROM Faculty
+                WHERE department = 'Business';
 
 -- ==========================
 -- Students table (Bujjingo)
@@ -45,7 +75,7 @@ INSERT INTO Students (first_name, last_name, date_of_birth, gender, email, class
 ('Alice', 'Uwimana', '2010-03-14', 'F', 'alice.u@school.rw', 1),
 ('Brian', 'Nkurunziza', '2010-07-22', 'M', 'brian.n@school.rw', 1),
 ('Clara', 'Mukamana', '2010-11-05', 'F', 'clara.m@school.rw', 2),
-('David', 'Habimana', '2010-01-30', 'M', 'david.h@school.rw', 2),
+('David', 'Habimana', '2010-01-30', 'M', 'david.h@school.rw', 2), 
 ('Eva', 'Ingabire', '2010-09-18', 'F', 'eva.i@school.rw', 3);
 
 -- UPDATE
