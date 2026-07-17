@@ -123,3 +123,37 @@ WHERE activity_id = 5;
 -- SELECT
 SELECT * FROM Extra_Curricular_Activities
 WHERE category = 'Sports';
+
+-- ==========================
+-- Courses table (Liza)
+-- ==========================
+
+CREATE TABLE Courses (
+    course_id INT PRIMARY KEY AUTO_INCREMENT,
+    course_name VARCHAR(100) NOT NULL,
+    credits INT,
+    faculty_id INT,
+    classroom_id INT,
+    FOREIGN KEY (faculty_id) REFERENCES Faculty(faculty_id),
+    FOREIGN KEY (classroom_id) REFERENCES Classroom(classroom_id)
+);
+
+INSERT INTO Courses (course_name, credits, faculty_id, classroom_id) VALUES
+('Introduction to Python', 3, 1, 1),
+('Calculus I', 4, 2, 2),
+('Business Strategy', 3, 4, 3),
+('Physics Mechanics', 4, 3, 4),
+('Data Structures', 3, 1, 2);
+
+-- UPDATE
+UPDATE Courses
+SET credits = 4
+WHERE course_id = 1;
+
+-- DELETE
+DELETE FROM Courses
+WHERE course_id = 5;
+
+-- SELECT with WHERE
+SELECT * FROM Courses
+WHERE credits >= 4;
