@@ -90,3 +90,36 @@ WHERE student_id = 5;
 -- SELECT with WHERE
 SELECT * FROM Students
 WHERE classroom_id = 1;
+
+-- =========================
+-- extra_curricular_activities table (promis)
+-- =========================
+
+CREATE TABLE Extra_Curricular_Activities (
+    activity_id INT PRIMARY KEY AUTO_INCREMENT,
+    activity_name VARCHAR(100) NOT NULL,
+    category VARCHAR(50) NOT NULL,
+    faculty_advisor_id INT NOT NULL,
+    FOREIGN KEY (faculty_advisor_id) REFERENCES Faculty(faculty_id)
+);
+
+INSERT INTO Extra_Curricular_Activities (activity_name, category, faculty_advisor_id)
+VALUES
+('Football Club', 'Sports', 1),
+('Debate Club', 'Academic', 2),
+('Coding Club', 'Technology', 1),
+('Drama Club', 'Arts', 3),
+('Music Club', 'Arts', 4);
+
+-- UPDATE
+UPDATE Extra_Curricular_Activities
+SET category = 'STEM'
+WHERE activity_id = 3;
+
+-- DELETE
+DELETE FROM Extra_Curricular_Activities
+WHERE activity_id = 5;
+
+-- SELECT
+SELECT * FROM Extra_Curricular_Activities
+WHERE category = 'Sports';
