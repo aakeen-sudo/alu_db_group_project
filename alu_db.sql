@@ -158,9 +158,10 @@ WHERE course_id = 5;
 SELECT * FROM Courses
 WHERE credits >= 4;
 
-============================================
+-- ============================================
 -- Student_Courses junction table (Janvier)
-============================================
+-- ============================================
+
 CREATE TABLE Student_Courses (
     student_course_id INT PRIMARY KEY AUTO_INCREMENT,
     student_id INT,
