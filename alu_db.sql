@@ -157,3 +157,45 @@ WHERE course_id = 5;
 -- SELECT with WHERE
 SELECT * FROM Courses
 WHERE credits >= 4;
+
+-- Student_Courses junction table
+CREATE TABLE Student_Courses (
+    student_course_id INT PRIMARY KEY AUTO_INCREMENT,
+    student_id INT,
+    course_id INT,
+    FOREIGN KEY (student_id) REFERENCES Students(student_id),
+    FOREIGN KEY (course_id) REFERENCES Courses(course_id)
+);
+
+INSERT INTO Student_Courses (student_id, course_id) VALUES
+(1, 1),
+(1, 2),
+(2, 2),
+(3, 3),
+(4, 4);
+
+UPDATE Student_Courses
+SET course_id = 4
+WHERE student_course_id = 2;
+
+DELETE FROM Student_Courses
+WHERE student_course_id = 5;
+
+-- Student_Activities junction table
+CREATE TABLE Student_Activities (
+    student_activity_id INT PRIMARY KEY AUTO_INCREMENT,
+    student_id INT,
+    activity_id INT,
+    FOREIGN KEY (student_id) REFERENCES Students(student_id),
+    FOREIGN KEY (activity_id) REFERENCES Extra_Curricular_Activities(activity_id)
+);
+
+INSERT INTO Student_Activities (student_id, activity_id) VALUES
+(1, 1),
+(1, 2),
+(2, 1),
+(3, 3),
+(4, 4);
+
+SELECT * FROM Student_Activities
+WHERE activity_id = 1;
