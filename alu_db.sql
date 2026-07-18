@@ -184,6 +184,10 @@ WHERE student_course_id = 2;
 DELETE FROM Student_Courses
 WHERE student_course_id = 5;
 
+-- SELECT with WHERE
+SELECT * FROM Student_Courses
+WHERE course_id = 4;
+
 -- Student_Activities junction table
 CREATE TABLE Student_Activities (
     student_activity_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -199,6 +203,15 @@ INSERT INTO Student_Activities (student_id, activity_id) VALUES
 (2, 1),
 (3, 3),
 (4, 4);
+
+-- UPDATE
+UPDATE Student_Activities
+SET activity_id = 2
+WHERE student_activity_id = 3;
+
+-- DELETE
+DELETE FROM Student_Activities
+WHERE student_activity_id = 5;
 
 SELECT * FROM Student_Activities
 WHERE activity_id = 1;
